@@ -1,0 +1,7 @@
+FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
+
+WORKDIR /
+
+COPY src ./src
+
+CMD ["conda", "run", "--no-capture-output", "python", "-m", "src.train"]

@@ -1,0 +1,5 @@
+name: pytorch
+channels:
+  - defaults
+dependencies:
+  - pytorch==1.13.1
