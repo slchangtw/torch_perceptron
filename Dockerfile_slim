@@ -5,11 +5,12 @@ WORKDIR /
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
-COPY src ./src
 COPY environment.yml environment.yml
 
 RUN conda update conda && \ 
     conda env create -f environment.yml && \
     conda clean -y -all
+
+COPY src ./src
 
 CMD ["conda", "run", "--no-capture-output",  "-n", "pytorch", "python", "-m", "src.train"]
